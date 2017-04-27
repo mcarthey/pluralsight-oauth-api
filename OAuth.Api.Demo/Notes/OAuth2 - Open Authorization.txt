@@ -1,0 +1,69 @@
+﻿# Abstract 
+
+	Request for Comments: 6749 
+
+	An open protocol to allow secure authorization in a simple and standard method from web, mobile,
+	and desktop applications.
+
+	The OAuth 2.0 authorization framework enables a third-party application to obtain limited access 
+	to an HTTP service, either on behalf of a resource owner by orchestrating an approval interaction
+	between the resource owner and the HTTP service, or by allowing the third-party application to 
+	obtain access on its own behalf.
+	https://oauth.net/2/
+
+# Glossary
+
+	Resource Owner - Trusted user which owns the resource on the resource server (person)
+	Authorization Server - can issue the limited use tokens/key
+	Client - the software that the resource owner is using
+
+	* Note that it is an important distinction that the client (software) can have different access
+	priviledges than the resource owner (person)
+	https://hueniverse.com/explaining-oauth-3735e3de27a8
+
+# Basic Flow 
+
+	1. Resource owner uses a client to access the resource on his behalf
+	2. Client needs to have access key/token
+	3. Don't want to give client master key so request from authorization server for "limited" key
+	4. Authorization Server authorizes the client (allows access to resource)
+	5. With that key the client can access the resource
+
+	# User Flows
+
+		* Authorization Code Flow (web client)
+			1. Request authorization
+			2. Request token
+			3. Access resource
+
+		* Implicit Flow (native/local clients)
+			1. Request authorization and token
+			2. Access resource
+
+	# Non-User Flows
+
+		* Resource Owner Password ("trusted clients")
+			1. Request token with resource owner credentials
+			2. Access resource
+
+		* Client Credential Flow (client-to-service communication)
+			1. Request token with client credentials
+			2. Access resource
+
+# Trust Zones
+
+	1. The Authorization Server and the Resource Server
+		a. Auth Server knows which resources to protect
+		b. Resource Server knows how to validate the "limited" keys from the Auth Server
+
+	2. The Resource Owner and Resource Server 
+		a. The owner uses the services of the server
+		
+	* Notice that the client is not necessarily part of any trust relationship
+
+# Resources
+
+	Damnation against OAuth 2.0: https://hueniverse.com/oauth-2-0-and-the-road-to-hell-8eec45921529
+	Intelligence functionality requests: https://zachholman.com/2011/01/oauth_will_murder_your_children/
+	Book: Getting Started with OAuth 2.0: Programming Clients for Secure Web API Authorization and Authentication
+	Decode JWT Tokens: http://openidtest.uninett.no/jwt

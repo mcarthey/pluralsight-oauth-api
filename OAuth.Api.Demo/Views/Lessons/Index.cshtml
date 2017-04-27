@@ -1,0 +1,18 @@
+﻿@model OAuth.Api.Demo.Models.Lesson
+
+@{
+    ViewBag.Title = "Lessons";
+}
+
+<h2>Lesson @Model.LessonNumber</h2>
+<div class="container">
+    <div class="well">
+        <ul class="list-group">
+            @foreach (var item in Model.QASets)
+            {
+                <li class="list-group-item-heading">@item.Question</li>
+                <li class="list-group-item">@item.Answer</li>
+            }
+        </ul>
+    </div>
+</div>
